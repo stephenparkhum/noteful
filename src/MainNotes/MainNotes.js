@@ -9,7 +9,11 @@ class MainNotes extends Component {
         return ( 
             <div className="main_app_container">
                 <section className="main-right">
-                    <NoteList list={this.props.list}/>
+                    <NoteList 
+                        list={this.props.list}
+                        
+
+                        />
                 </section>
 
             </div>

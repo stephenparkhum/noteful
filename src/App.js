@@ -11,17 +11,14 @@ import NoteMain from './/NoteMain/NoteMain';
 import folderNotes from './/dummy-store';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      folderList: folderNotes.folders,
+    state = {
+      folderList: folderNotes,
       noteList: folderNotes.notes,
       activeFolder: '',
-      activeNote: 'cbc787a0-ffaf-11e8-8eb2-f2801f1b9fd1',
-      noteIndex: '0',
+      activeNote: 'd26e0034-ffaf-11e8-8eb2-f2801f1b9fd1',
+      noteIndex: 1,
 
     };
-  }
 
   updateActiveFolder(folderId) {
       this.setState({
@@ -43,9 +40,14 @@ class App extends Component {
 
 
   render () {
-    const singleNoteDispay = (activeNote) => {
+    const findFolderID = (folderName) => {
+      const folderID = this.state.folderList.find(folderName)
+      this.updateActiveFolder(folderID);
+    };
+
+    const singleNoteDispay = (activeNote, noteIndex, noteList) => {
       return (<Route path={`/note/${activeNote}`} render={() => {
-        return <NoteMain activeNote={activeNote} activeNoteIndex={this.state.noteIndex} noteList={this.state.noteList} />
+        return <NoteMain activeNote={activeNote} activeNoteIndex={noteIndex} noteList={noteList} />
       }}/>)
     };
 
@@ -61,7 +63,7 @@ class App extends Component {
               <section className="main-left">
                 <Route path='/main' 
                     render={() => {
-                      return <Sidebar folders={this.state.folderList} />
+                      return <Sidebar folders={this.state.folderList} activeFolder={this.state.activeFolder} updateActiveFolder={this.updateActiveFolder}/>
                     }}/>
                 <Route 
                     path='/folder' 
@@ -69,7 +71,11 @@ class App extends Component {
                       return <FolderSidebar folders={this.state.folderList} />
                     }}
                   />
-                <Route path='/note' component={NoteSidebar}/>
+                <Route 
+                  path='/note' 
+                  render={() => {
+                    return <NoteSidebar actFolder={this.state.activeFolder}/>
+                  }}/>
               </section>
               <section className="main-right">
                 <Route 
@@ -77,9 +83,13 @@ class App extends Component {
                   render={() => {
                     return <MainNotes list={this.state.folderList.notes} />
                   }} />
-                <Route path='/folder' component={FolderView} />
+                <Route 
+                  path='/folder' 
+                  render={() => {
+                    return <FolderView noteList={this.state.noteList} folderList={this.state.folderList} activeFolder={this.state.activeFolder}/>
+                  }} />
                 <Route path='/note' component={NoteMain} />
-                {singleNoteDispay(this.state.activeNote)}
+                {singleNoteDispay(this.state.activeNote, this.state.noteIndex, this.state.noteList)}
               </section>
   
           </div>

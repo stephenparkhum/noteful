@@ -1,0 +1,33 @@
+.note_display_main {
+    display: block;
+    height: 600px;
+    overflow: scroll;
+}
+
+.note_display_main div {
+    border: 1px solid black;
+    margin: 10px 20px; 
+    padding: 10px;
+}
+
+.delete-btn {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.delete-btn:hover {
+    background: red;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.note-list-title {
+    text-decoration: underline;
+}
+
+.note-list-title:hover {
+    cursor: pointer;
+}

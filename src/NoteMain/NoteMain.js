@@ -3,13 +3,23 @@ import './NoteMain.css';
 
 class NoteMain extends Component {
     render() { 
-        const noteDisplay = function(activeNote, noteList, noteIndex) {
-            console.log(noteList[noteIndex]);
+        const {noteList, activeNote, activeNoteIndex} = this.props;
+        const noteDisplay = (noteList, activeNote, activeNoteIndex) => {
+            if (noteList !== undefined && activeNote === noteList[activeNoteIndex].id) {
+                return (
+                    <div className="note-main">
+                    <h1>{noteList[activeNoteIndex].name}</h1>
+                    <p>{noteList[activeNoteIndex].content}</p>
+                    <p><small>{noteList[activeNoteIndex].modified}</small></p>
+                    </div>
+                    )
+
+            }
         };
 
         return ( 
             <>
-                {noteDisplay(this.props.activeNote, this.props.noteList, this.props.activeNoteIndex)}
+                {noteDisplay(noteList, activeNote, activeNoteIndex)}
             </>
          );
     }

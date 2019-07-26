@@ -4,8 +4,8 @@ import './FolderSidebar.css';
 
 class FolderSidebar extends Component {
     render() { 
-        const folderListDisplay = this.props.folders.folders.map((folder) => {
-            return <li><Link to={'/'}>{folder.name}</Link></li>
+        const folderListDisplay = this.props.folders.folders.map((folder, index) => {
+            return <li key={index}><Link to={'/'}>{folder.name}</Link></li>
         })
 
 

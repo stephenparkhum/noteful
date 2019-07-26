@@ -23,3 +23,11 @@
     font-weight: bold;
     cursor: pointer;
 }
+
+.note-list-title {
+    text-decoration: underline;
+}
+
+.note-list-title:hover {
+    cursor: pointer;
+}

@@ -3,10 +3,12 @@ import './NoteSidebar.css';
 
 class NoteSidebar extends Component {
     render() { 
+        const {activeFolder} = this.props;
+
         return ( 
             < >
             <button className="back-btn">Go Back</button>
-            <h2>Current Folder Name</h2>
+            <h2>{activeFolder}</h2>
             </ >
          );
     }
