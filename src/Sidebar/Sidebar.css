@@ -1,0 +1,38 @@
+.sidebar {
+    list-style: none;
+}
+
+ul {
+    padding: 0; 
+    margin: 5px;
+}
+
+li {
+    list-style: none;
+    border: 1px solid black;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+li:hover {
+    background-color: teal;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.add_folder_btn {
+    border: 1px solid black;
+    padding: 7px;
+    font-size: 20px;
+    width: 90%;
+    margin: 5px;
+}
+
+.add_folder_btn:hover {
+    background-color: green;
+    color: white;
+    font-weight: bold;
+}
