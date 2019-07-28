@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import 'date-fns/format';
 import './NoteMain.css';
 
 class NoteMain extends Component {

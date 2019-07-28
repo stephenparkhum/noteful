@@ -11,7 +11,7 @@ class MainNotes extends Component {
                 <section className="main-right">
                     <NoteList 
                         list={this.props.list}
-                        
+                        updateActiveNote={this.props.updateActiveNote}
 
                         />
                 </section>

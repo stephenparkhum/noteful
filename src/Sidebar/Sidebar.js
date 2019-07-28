@@ -6,7 +6,7 @@ class Sidebar extends Component {
     render() { 
         const {activeNote, folders, activeFolder, updateActiveFolder} = this.props;
         const folderListDisplay = folders.folders.map((folder, index) => {
-            return <li key={index} onClick={() => (updateActiveFolder(`12345`))}><Link to={`/folder/${folder.id}`}>{folder.name}</Link></li>
+            return <li key={index}><Link to={`/folder/${folder.id}`}>{folder.name}</Link></li>
         })
 
         return ( 

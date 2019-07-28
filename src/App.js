@@ -15,29 +15,16 @@ class App extends Component {
       folderList: folderNotes,
       noteList: folderNotes.notes,
       activeFolder: '',
-      activeNote: 'd26e0034-ffaf-11e8-8eb2-f2801f1b9fd1',
-      noteIndex: 1,
+      activeNote: 'cbc787a0-ffaf-11e8-8eb2-f2801f1b9fd1',
+      noteIndex: 0,
 
     };
 
-  updateActiveFolder(folderId) {
-      this.setState({
-        activeFolder: folderId
-      });
-  }
-
-  updateActiveNote(activeNoteId) {
+  updateActiveNote(activeNoteString) {
     this.setState({
-      activeNote: activeNoteId
+      activeNote: activeNoteString
     });
   }
-
-  updateNoteIndex(activeNoteIndex) {
-    this.setState({
-      noteIndex: activeNoteIndex
-    });
-  }
-
 
   render () {
     const findFolderID = (folderName) => {
@@ -47,7 +34,7 @@ class App extends Component {
 
     const singleNoteDispay = (activeNote, noteIndex, noteList) => {
       return (<Route path={`/note/${activeNote}`} render={() => {
-        return <NoteMain activeNote={activeNote} activeNoteIndex={noteIndex} noteList={noteList} />
+        return <NoteMain activeNote={activeNote} activeNoteIndex={noteIndex} noteList={noteList} updateActiveNote={this.updateActiveNote}/>
       }}/>)
     };
 
